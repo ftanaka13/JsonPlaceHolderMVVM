@@ -6,12 +6,22 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.faculdadeimpacta.jsonplaceholdermvvm.data.models.Post
 import br.com.faculdadeimpacta.jsonplaceholdermvvm.databinding.PostItemBinding
 
-class PostAdapter(private val listaPost: List<Post>) : RecyclerView.Adapter<PostAdapter.PostVH>() {
+class PostAdapter(
+    private val listaPost: List<Post>,
+    private val acaoUsuario: (Int) -> Unit,
+    private val acaoComentario: (Int) -> Unit
+) : RecyclerView.Adapter<PostAdapter.PostVH>() {
 
     inner class PostVH(private val binding: PostItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(post: Post) {
             binding.post = post
+            binding.imageViewAutor.setOnClickListener {
+                acaoUsuario(post.userId)
+            }
+            binding.imageViewComentario.setOnClickListener {
+                acaoComentario(post.id)
+            }
         }
     }
 
