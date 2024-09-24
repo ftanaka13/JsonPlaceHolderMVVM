@@ -19,9 +19,8 @@
     </fragment>
     <fragment
         android:id="@+id/postComentariosFragment"
-        android:name="br.com.faculdadeimpacta.jsonplaceholdermvvm.P"
-        android:label="fragment_post_comentarios"
-        tools:layout="@layout/fragment_post_comentarios">
+        android:name="br.com.faculdadeimpacta.jsonplaceholdermvvm.ui.fragments.PostComentariosFragment"
+        android:label="fragment_post_comentarios">
         <argument
             android:name="postId"
             app:argType="integer" />
